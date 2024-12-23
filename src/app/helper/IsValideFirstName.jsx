@@ -14,12 +14,20 @@
 export const isValideFirstName = (firstName) => {
   const numbers = "0123456789";
   const symbols = "@#$%^&*!()_+<>?/";
-  for (let i = 0; (i = numbers.length); i++) {
+  const validateName = (firstName) => {
+    if (firstName === "") {
+      return true;
+    }
+    const firstNameRegex = /^[a-zA-Z]+$/;
+    return firstNameRegex.test(firstName);
+  };
+  
+  for (let i = 0; i < numbers.length; i++) {
     if (firstName.includes(numbers[i])) {
       return false;
     }
   }
-  for (let i = 0; (i = symbols.length); i++) {
+  for (let i = 0; i < symbols.length; i++) {
     if (firstName.includes(symbols[i])) {
       return false;
     }
